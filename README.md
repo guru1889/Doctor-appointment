@@ -1,6 +1,6 @@
-# QuickHeal - Doctor Appointment Booking System
+#  Doctor Appointment Booking System
 
-QuickHeal is a Django-based web application that allows users to book doctor appointments online.  
+Django-based web application that allows users to book doctor appointments online.  
 Different roles (Admin, Doctor, Patient) have role-specific access and features.
 
 ## 🚀 Features
