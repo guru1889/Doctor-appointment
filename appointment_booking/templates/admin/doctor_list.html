@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+<table class="table table-bordered table-striped text-center">
+    <thead class="table-dark">
+            <tr>
+                <th>Doctor</th>
+                <th>Specialization</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+{% for d in doctors %}
+
+<tr>
+    <td>{{ d.name }}</td>
+    <td>{{ d.specialization }}</td>
+    <td>
+        <a href="{% url 'appointment_booking:delete_doctor' d.id %}"
+           class="btn btn-danger btn-sm"
+           onclick="return confirm('Are you sure?')">
+           Delete
+        </a>
+    </td>
+</tr>
+{% endfor %}
+</table>
+
+
+
+{% endblock content %}

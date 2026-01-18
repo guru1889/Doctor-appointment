@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+  <div class="row g-1">
+
+    {% for doctor in doctors %}
+    <div class="col-md-3">
+      <div class="card" style="width:305px;height:330px;">
+        <div class="card-body text-center">
+
+          <img src="{{ doctor.image.url }}"
+               height="150"
+               width="150"
+               class="mb-2"
+               alt="doctor image">
+
+          <h4>{{ doctor.name }}</h4>
+          <p>{{ doctor.specialization|truncatechars:50 }}</p>
+          <a href="{% url 'appointment_booking:get_appointment' doctor.id %}" class="btn btn-primary">Book appointment</a>
+
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+
+  </div>
+</div>
+{% endblock  %}

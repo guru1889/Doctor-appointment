@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content  %}
+<div class="container mt-5 text-center">
+    <div class="d-flex " style="justify-content:space-between;align-items:center">
+        <img  src="{{doctor.image.url}}">
+        <div>
+            <p><b>Name:</b>{{doctor.name}}</p>
+            <p><b>Specialization:</b>{{doctor.specialization}}</p>
+            <p><b>Experiance:</b>{{doctor.experience}}</p>
+            <p><b>Counselting Fee:</b>{{doctor.fees}}</p>
+            <p><b>Counselting Time:</b>{{doctor.time}}</p>
+        </div>       
+    <div>
+</div>
+
+{% endblock  %}

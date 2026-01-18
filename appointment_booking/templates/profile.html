@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+    .profile-box {
+        max-width: 500px;
+        margin: auto;
+        text-align: justify;
+    }
+</style>
+
+<div class="profile-box">
+
+{% if profile.image %}
+    <img src="{{ profile.image.url }}" width="150" height="150"
+         class="rounded-circle d-block mx-auto mb-3">
+{% endif %}
+<div style="margin-left:150px;">
+<p><strong>Name:</strong> {{ profile.name }}</p>
+<p><strong>Username:</strong> {{ profile.username }}</p>
+<p><strong>Email:</strong> {{ profile.email }}</p>
+<p><strong>Mobile:</strong> {{ profile.mobile }}</p>
+</div>
+</div>
+{% endblock content %}

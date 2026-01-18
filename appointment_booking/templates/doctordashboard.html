@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% if appointments %}
+<h4 class="text-center">Appointments Book</h4>
+
+<table class="table table-bordered table-striped text-center">
+    <thead class="table-dark">
+        <tr>
+            <th>S.No</th>
+            <th>Patient</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Booking Time</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for data in appointments %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ data.patient.username }}</td>
+            <td>{{ data.date }}</td>
+            <td>{{ data.time }}</td>
+            <td>{{ data.created_at }}</td>
+
+            <td>
+                {% if data.status == "pending" %}
+                    <span class="badge bg-warning text-dark">Pending</span>
+                {% elif data.status == "approved" %}
+                    <span class="badge bg-success">Approved</span>
+                {% elif data.status == "rejected" %}
+                    <span class="badge bg-danger">Rejected</span>
+                {% else %}
+                    <span class="badge bg-secondary">{{ data.status }}</span>
+                {% endif %}
+            </td>
+
+            <td>
+                {% if data.status == "pending" %}
+                    <a href="{% url 'appointment_booking:accept_appointment' data.id %}"
+                       class="btn btn-success btn-sm">Accept</a>
+
+                    <a href="{% url 'appointment_booking:reject_appointment' data.id %}"
+                       class="btn btn-danger btn-sm">Reject</a>
+
+                {% elif data.status == "appointment confirm" %}
+                    <a href="{% url 'appointment_booking:complete_appointment' data.id %}"
+                       class="btn btn-primary btn-sm">Complete</a>
+                {% else %}
+                    <span class="text-muted">—</span>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% else %}
+<h4 class="text-center text-danger">No Appointments Booked</h4>
+{% endif %}
+
+{% endblock content %}
