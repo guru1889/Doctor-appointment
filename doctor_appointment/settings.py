@@ -69,11 +69,11 @@ WSGI_APPLICATION = 'doctor_appointment.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'doctor_appointment',
+        'NAME': your Db,
         'USER':'root',
         'HOST':'localhost',
         'PORT':'3306',
-        'PASSWORD':'Guru@1234'
+        'PASSWORD':your password
     }
 }
 
